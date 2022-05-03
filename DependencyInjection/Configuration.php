@@ -32,9 +32,10 @@ class Configuration implements ConfigurationInterface
 
     public function getConfigTreeBuilder()
     {
-        $builder = new TreeBuilder();
+        $builder = new TreeBuilder("jms_payment_core");
+        $rootNode = $builder->getRootNode();
 
-        $builder->root($this->alias, 'array')
+        $rootNode
             ->children()
                 ->arrayNode('encryption')
                     ->canBeEnabled()
